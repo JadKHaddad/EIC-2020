@@ -1,0 +1,3 @@
+if not working use:
+gcc -std=c99
+make compile_test_final
