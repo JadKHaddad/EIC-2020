@@ -3,3 +3,7 @@ test_generation
 test_storage
 test_exploration
 test_final
+
+# Added by cargo
+
+/target
