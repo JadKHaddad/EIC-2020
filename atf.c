@@ -39,7 +39,6 @@ void delete_ll(linked_list* ll) {
 	{
 		linked_list* current = ll;
 		ll = ll->next;
-
 		free(current->value);
 		free(current);
 	}
@@ -187,8 +186,9 @@ void generate_search_space(tp_t* parameters, int num_parameters,
 			
 			linked_list* serch_space_values = generate_ll(NULL);
 			linked_list* current_ll = serch_space_values;
-			
+
 			search_space->list = serch_space_values;
+			
 			search_space->parameters = parameters;
 			search_space->size_of_combinations = num_parameters;
 
@@ -474,7 +474,7 @@ void generate_search_space(tp_t* parameters, int num_parameters,
 				free(values_lists[i]);
 			}
 			free(values_lists);
-			
+
 		}
 }
 //------------------------------------------------------------------------------------------
@@ -492,13 +492,14 @@ configuration_t get_config(search_space_t* search_space, int index) {
 //------------------------------------------------------------------------------------------
 
 void free_search_space(search_space_t* search_space) {
-
-	for(int i = 0; i < search_space->size; ++i){
-		free(search_space->combinations_array[i]);
-	}
+	printf("\nfree search space\n");
+	//for(int i = 0; i < search_space->size; ++i){
+		//free(search_space->combinations_array[i]); no need to free the values, they will be freed by deleting the list
+	//}
 	free(search_space->combinations_array);
-	free(search_space->parameters);
+	//free(search_space->parameters); // no need to free parameters, because they are being always allocated on the stack
 	delete_ll(search_space->list);
+	printf("free search space done\n");
 }
 //------------------------------------------------------------------------------------------
 

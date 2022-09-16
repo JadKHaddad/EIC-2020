@@ -30,14 +30,13 @@ int main() {
   search_space_t search_space;
   generate_search_space(parameters, 3, &search_space);
 
-  /*while (search_space.Kombinationen->next != NULL) {
-      printf("%d, %d, %d \n", search_space.Kombinationen->value[0], search_space.Kombinationen->value[1], search_space.Kombinationen->value[2]);
-      search_space.Kombinationen = search_space.Kombinationen->next;
-  }*/
+  while (search_space.list->next != NULL) {
+      printf("%d, %d, %d \n", search_space.list->value[0], search_space.list->value[1], search_space.list->value[2]);
+      search_space.list = search_space.list->next;
+  }
 
-
-  /*int* l = get_value_ll(search_space.Kombinationen, 30);
-   printf("%d, %d, %d \n", l[0], l[1], l[2]);*/
+  // int* l = get_value_ll(search_space.list, 30); // no get_value_ll func defined
+  // printf("%d, %d, %d \n", l[0], l[1], l[2]);
 
   configuration_t best_config;
   int             best_cost;
@@ -45,5 +44,5 @@ int main() {
       RANDOM, EVALUATIONS, search_space.size,
       &best_config, &best_cost);
 
-   free_search_space(&search_space);
+  free_search_space(&search_space);
 }
