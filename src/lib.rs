@@ -8,6 +8,7 @@ include!(concat!(env!("OUT_DIR"), "/bindings.rs"));
 fn test_generation_test() {
     assert_eq!(unsafe { test_generation() }, 0);
 }
+
 #[test]
 fn test_storage_test() {
     assert_eq!(unsafe { test_storage() }, 0);
